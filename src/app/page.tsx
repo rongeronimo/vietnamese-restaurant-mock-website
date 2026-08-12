@@ -19,11 +19,11 @@ export default function Home() {
         <WhyUs />
         <Menu />
         <Specials />
-        <Events />
-        <Booking />
-        <Reviews />
         <Gallery />
         <Chefs />
+        <Events />
+        <Reviews />
+        <Booking />
         <Contact />
       </main>
     </>
