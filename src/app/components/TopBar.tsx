@@ -5,17 +5,21 @@ import './topBar.css';
 
 export default function TopBar() {
     const [scroll, setScroll] = useState(0);
-    
+
     useEffect(() => {
-        window.addEventListener('scroll', () => {
+        const handleScroll = () => {
             setScroll(window.scrollY);
-        });
-        return () => {
-            window.removeEventListener('scroll', () => {
-                setScroll(window.scrollY);
-            });
         };
-    }, [scroll]);
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Set initial scroll position
+        handleScroll();
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <div
@@ -29,6 +33,7 @@ export default function TopBar() {
                     <i className="bi bi-phone d-flex align-items-center">
                         <span>+1 5589 55488 55</span>
                     </i>
+
                     <i className="bi bi-clock d-flex align-items-center ms-4">
                         <span>Mon-Sat: 11AM - 23PM</span>
                     </i>
@@ -38,7 +43,7 @@ export default function TopBar() {
                     <ul>
                         <li>EN</li>
                         <li>
-                            <a href='#'>VN</a>
+                            <a href="#">VN</a>
                         </li>
                     </ul>
                 </div>
