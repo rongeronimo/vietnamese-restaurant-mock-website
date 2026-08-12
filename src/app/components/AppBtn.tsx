@@ -1,16 +1,31 @@
-import React from 'react'
-import './appBtn.css'
+'use client';
 
-export default function AppBtn({name}: {name: string}) {
+import React from 'react';
+import './appBtn.css';
 
-    const handleScrollTo = (section: string) => {
-        // go to booking table section
-    }
+export default function AppBtn({ name }: { name: string }) {
+
+    const handleScrollTo = () => {
+        const header = document.querySelector('#header') as HTMLElement;
+        const targetEl = document.querySelector(
+            '#book-a-table'
+        ) as HTMLElement;
+
+        if (!header || !targetEl) return;
+
+        const offset = header.offsetHeight;
+        const elementPosition = targetEl.offsetTop;
+
+        window.scrollTo({
+            top: elementPosition - offset,
+            behavior: 'smooth',
+        });
+    };
 
     return (
-        <a 
+        <a
             className="app-btn scrollto d-none d-lg-flex"
-            onClick= {() => handleScrollTo('book-a-table')}
+            onClick={handleScrollTo}
         >
             {name}
         </a>
