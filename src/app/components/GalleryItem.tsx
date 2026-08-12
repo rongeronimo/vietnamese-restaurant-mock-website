@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import GLightbox from 'glightbox';
 import './galleryItem.css';
 import Image from 'next/image';
 
@@ -11,9 +10,25 @@ export default function GalleryItem({item,} : {
     };
 }) {
     useEffect(() => {
-        GLightbox({
-            selector: '.gallery-lightbox',
+        const initLightbox = async () => {
+            const { default: GLightbox } = await import('glightbox');
+
+            const lightbox = GLightbox({
+                selector: '.gallery-lightbox',
+            });
+
+            return lightbox;
+        };
+
+        let lightbox: Awaited<ReturnType<typeof initLightbox>>;
+
+        initLightbox().then((instance) => {
+            lightbox = instance;
         });
+
+        return () => {
+            lightbox?.destroy();
+        };
     }, []);
   return (
     <div className="col-lg-3 col-md-4">
