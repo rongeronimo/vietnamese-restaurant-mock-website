@@ -11,6 +11,7 @@ type Special = {
     id: number;
     image: string;
     title: string;
+    price: number;
     subtitle: string;
     content: string;
     active: boolean;
