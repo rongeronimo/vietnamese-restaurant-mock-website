@@ -99,6 +99,7 @@
     background: #0c0b09;
     border-color: #625b4b;
     color: white;
+    resize: none;
 }
 
 .contact .contact-form input::-webkit-input-placeholder,
