@@ -1,5 +1,5 @@
 import React from 'react'
-import aboutImage from "../../../public/assets/images/about.png";
+import aboutImage from "../../../public/assets/images/viet-hero2.png";
 import './about.css';
 import Image from 'next/image';
 
@@ -15,6 +15,10 @@ export default function About() {
                 >
                     <div className="about-img">
                         <Image src={aboutImage} alt=""/>
+                        <div className="about-img-label">
+                            <span>EST.</span>
+                            <strong>2006</strong>
+                        </div>
                     </div>
                 </div>  
                 <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
