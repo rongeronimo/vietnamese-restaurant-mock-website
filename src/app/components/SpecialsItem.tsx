@@ -5,6 +5,7 @@ export default function SpecialsItem({item}: {item: {
     id: number;
     image: string;
     title: string;
+    price: number;
     subtitle: string;
     content: string;
     active: boolean;
@@ -16,7 +17,11 @@ export default function SpecialsItem({item}: {item: {
     >
         <div className="row">
             <div className="col-lg-8 details order-2 order-lg-1">
-                <h3>{item.title}</h3>
+                <div className="title-price">
+                    <h3>{item.title}</h3>
+                    <div className="title-line"></div>
+                    <span>${item.price}</span>
+                </div>
                 <p className="fst-italic">{item.subtitle}</p>
                 <p>{item.content}</p>
             </div>

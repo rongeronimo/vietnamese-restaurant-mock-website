@@ -5,12 +5,43 @@
     animation: fadeIn 0.5s ease-out;
 }
 
-.specials .details h3 {
+/* Title + Price */
+
+.specials .title-price {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.specials .title-price h3 {
     font-size: 26px;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin: 0;
+    padding: 0;
     color: #fff;
+    line-height: 1.2;
+    white-space: nowrap;
 }
+
+.specials .title-line {
+    flex: 1;
+    border-bottom: 2px dotted rgba(205, 164, 94, 0.7);
+    margin: 0 15px 5px 15px;
+}
+
+.specials .title-price span {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    color: #cda45e;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* Description */
 
 .specials .details p {
     color: #aaaaaa;
@@ -18,4 +49,111 @@
 
 .specials .details p:last-child {
     margin-bottom: 0;
+}
+
+/* Images */
+
+.specials .img-fluid {
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(205, 164, 94, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.specials .img-fluid:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   Responsive
+   ========================================= */
+
+/* Tablets */
+@media (max-width: 991px) {
+
+    .specials .title-price h3 {
+        font-size: 24px;
+    }
+
+    .specials .title-price span {
+        font-size: 20px;
+    }
+
+    .specials .title-line {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .specials .img-fluid {
+        max-width: 350px;
+        margin: 0 auto 25px;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    .specials .title-price {
+        margin-bottom: 15px;
+    }
+
+    .specials .title-price h3 {
+        font-size: 22px;
+    }
+
+    .specials .title-price span {
+        font-size: 19px;
+    }
+
+    .specials .title-line {
+        margin-left: 10px;
+        margin-right: 10px;
+        border-bottom-width: 1px;
+    }
+
+    .specials .details p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .specials .img-fluid {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        margin: 0 auto 20px;
+    }
+
+    .specials .img-fluid:hover {
+        transform: none;
+    }
+}
+
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+    .specials .title-price h3 {
+        font-size: 20px;
+    }
+
+    .specials .title-price span {
+        font-size: 18px;
+    }
+
+    .specials .title-line {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .specials .details p {
+        font-size: 13px;
+    }
+
+    .specials .img-fluid {
+        max-width: 280px;
+        border-radius: 6px;
+    }
 }
