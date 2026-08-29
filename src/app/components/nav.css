@@ -19,17 +19,28 @@
 }
 
 .navbar a,
-.navbar a:focus{
+.navbar a:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 10px 0 10px 30px;
+
     color: #fff;
     white-space: nowrap;
+
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
     transition: 0.3s;
-    font-size: 15px;
-    font-weight: 300;
     cursor: pointer;
+}
+
+.navbar .active {
+    font-weight: 600;
 }
 
 .navbar a i,
@@ -44,6 +55,26 @@
 .navbar .active:focus,
 .navbar li:hover > a {
     color: #d9ba85;
+}
+
+/* Active navigation underline */
+.navbar > ul > li > a::after {
+    content: '';
+    position: absolute;
+    left: 30px;
+    bottom: 4px;
+    width: calc(100% - 30px);
+    height: 2px;
+    background: #d9ba85;
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar > ul > li > a.active::after {
+    transform: scaleX(1);
 }
 
 .navbar .dropdown ul {
