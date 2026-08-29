@@ -30,7 +30,7 @@ export default function Events() {
     const [slides, setSlides] = useState<Event[]>([]);
 
     const getEventsData = () => {
-        fetch('http://localhost:3000/api/events')
+        fetch('/api/events')
             .then(res => res.json())
             .then(data => setSlides(data))
             .catch(e => console.log(e.message));
