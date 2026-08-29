@@ -6,20 +6,20 @@ import './appBtn.css';
 export default function AppBtn({ name }: { name: string }) {
 
     const handleScrollTo = () => {
-        const header = document.querySelector('#header') as HTMLElement;
-        const targetEl = document.querySelector(
-            '#book-a-table'
-        ) as HTMLElement;
+        // const header = document.querySelector('#header') as HTMLElement;
+        // const targetEl = document.querySelector(
+        //     '#book-a-table'
+        // ) as HTMLElement;
 
-        if (!header || !targetEl) return;
+        // if (!header || !targetEl) return;
 
-        const offset = header.offsetHeight;
-        const elementPosition = targetEl.offsetTop;
+        // const offset = header.offsetHeight;
+        // const elementPosition = targetEl.offsetTop;
 
-        window.scrollTo({
-            top: elementPosition - offset,
-            behavior: 'smooth',
-        });
+        // window.scrollTo({
+        //     top: elementPosition - offset,
+        //     behavior: 'smooth',
+        // });
     };
 
     return (
