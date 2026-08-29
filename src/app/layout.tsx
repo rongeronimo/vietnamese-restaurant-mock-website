@@ -15,7 +15,6 @@ import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 // Components
-import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import BacktoTop from "./components/BackToTop";
 import Footer from "./sections/Footer";
@@ -40,7 +39,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={playfair.className}>
-        <TopBar />
         <Header />
         {children}
         <Footer />
