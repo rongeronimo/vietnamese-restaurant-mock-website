@@ -4,7 +4,7 @@ import WhyUsCard from '../components/WhyUsCard';
 import SectionTitle from '../components/SectionTitle';
 
 async function getWhyUsData() {
-    const res = await fetch('http://localhost:3000/api/whyus');
+    const res = await fetch('/api/whyus');
     return res.json();
 }
 
