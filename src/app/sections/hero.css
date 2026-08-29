@@ -1,179 +1,1192 @@
-/* Hero Section */
+/* =========================================
+   HERO SECTION
+========================================= */
 
 #hero {
     width: 100%;
     height: 100vh;
-    background: url('../../../public/assets/images/viet-hero.png');
-    background-size: cover;
+    min-height: 700px;
+
+    background:
+        url('../../../public/assets/images/about.png')
+        center center / cover no-repeat;
+
     position: relative;
     padding: 0;
+
+    overflow: hidden;
 }
 
-#hero:before {
+
+/* =========================================
+   HERO OVERLAY
+========================================= */
+
+#hero::before {
     content: '';
-    background: rgba(0, 0, 0, 0.5);
+
     position: absolute;
-    bottom: 0;
-    top: 0;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.58) 45%,
+            rgba(0, 0, 0, 0.38) 100%
+        );
+
+    z-index: 0;
+}
+
+
+/* =========================================
+   BOTTOM VIGNETTE
+========================================= */
+
+#hero::after {
+    content: '';
+
+    position: absolute;
+
     left: 0;
     right: 0;
+    bottom: 0;
+
+    height: 220px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.55),
+            transparent
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
 }
+
+
+/* =========================================
+   CONTAINER
+========================================= */
 
 #hero .container {
-    padding-top: 110px;
+    position: relative;
+
+    z-index: 2;
+
+    padding-top: 80px;
 }
 
-@media (max-width: 992px) {
-    #hero .container{
-        padding-top: 98px;
-    }
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.hero-eyebrow {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+
+    color: #cda45e;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
 }
+
+.hero-eyebrow::before {
+    content: '';
+
+    width: 38px;
+    height: 1px;
+
+    flex-shrink: 0;
+
+    background: #cda45e;
+}
+
+
+/* =========================================
+   HERO TITLE
+========================================= */
 
 #hero h1 {
     margin: 0;
-    font-size: 8rem;
-    font-weight: 700;
-    line-height: 7.5rem;
+
     color: #fff;
+
     font-family: 'Poppins', sans-serif;
+
+    font-size: 7rem;
+    font-weight: 700;
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
 }
 
 #hero h1 span {
     color: #cda45e;
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-weight: 400;
+
+    font-style: italic;
+
+    letter-spacing: -2px;
 }
+
+
+/* =========================================
+   DECORATIVE DIVIDER
+========================================= */
+
+.hero-divider {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 180px;
+
+    margin: 28px 0 22px;
+}
+
+.hero-divider::before {
+    content: '';
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #cda45e,
+            rgba(205, 164, 94, 0)
+        );
+}
+
+.hero-divider span {
+    position: absolute;
+
+    left: 30px;
+
+    width: 7px;
+    height: 7px;
+
+    background: #cda45e;
+
+    transform: rotate(45deg);
+}
+
+
+/* =========================================
+   SUBTITLE
+========================================= */
 
 #hero h2 {
-    color: #eee;
-    margin-bottom: 10px 0 0 0;
-    font-size: 2rem;
+    max-width: 650px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-size: 1.35rem;
+    font-weight: 300;
+
+    line-height: 1.7;
+
+    letter-spacing: 0.5px;
 }
 
-#hero .btns{
-    margin-top: 30px;
+#hero h2 span {
+    color: rgba(255, 255, 255, 0.9);
 }
+
+#hero h2 strong {
+    color: #cda45e;
+
+    font-weight: 500;
+}
+
+
+/* =========================================
+   CTA BUTTONS
+========================================= */
+
+#hero .btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-top: 35px;
+    margin-left: -2px;
+
+    padding-left: 0;
+}
+
+
+/* =========================================
+   PLAY BUTTON
+========================================= */
 
 #hero .play-btn {
     width: 94px;
     height: 94px;
-    background: radial-gradient(#cda45e 50%, rgba(205, 164, 94, 9.4) 52%);
+
+    background:
+        radial-gradient(
+            #cda45e 50%,
+            rgba(205, 164, 94, 0.18) 52%
+        );
+
     border-radius: 50%;
+
     display: block;
+
     position: relative;
-    overflow: hidden;
+
+    overflow: visible;
+
+    box-shadow:
+        0 0 0 1px rgba(205, 164, 94, 0.2),
+        0 15px 40px rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
 }
+
+#hero .play-btn:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 0 1px rgba(205, 164, 94, 0.5),
+        0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================
+   PLAY ICON
+========================================= */
 
 #hero .play-btn::after {
     content: '';
+
     position: absolute;
+
     left: 50%;
     top: 50%;
-    transform: translateX(-40%) translateY(-50%);
+
+    transform: translate(-40%, -50%);
+
     width: 0;
     height: 0;
+
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     border-left: 15px solid #fff;
-    z-index: 100;
-    transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-}
 
-#hero .play-btn::before {
-    content: '';
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    -webkit-animation-delay: 0s;
-    animation-delay: 0s;
-    -webkit-animation: pulsate-btn 2s;
-    animation: pulsate-btn 2s;
-    -webkit-animation-direction: forwards;
-    animation-direction: forwards;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    -webkit-animation-timing-function: steps;
-    animation-timing-function: steps;
-    opacity: 1;
-    border-radius: 50%;
-    border: 5px solid rgba(205, 164, 94, 0.7);
-    top: -15%;
-    left: -15%;
-    background: rgba(198, 16, 0, 0);
+    z-index: 100;
+
+    transition:
+        transform 400ms cubic-bezier(
+            0.55,
+            0.055,
+            0.675,
+            0.19
+        );
 }
 
 #hero .play-btn:hover::after {
-    border-left: 15px solid #cda45e;
-    transform: scale(20);
+    transform:
+        translate(-40%, -50%)
+        scale(1.15);
 }
 
-#hero .play-btn:hover::before {
+
+/* =========================================
+   PULSING CIRCLE
+========================================= */
+
+#hero .play-btn::before {
     content: '';
+
     position: absolute;
-    left: 50%;
+
+    width: 120px;
+    height: 120px;
+
     top: 50%;
-    transform: translateX(-40%) translateY(-50%);
-    width: 0;
-    height: 0;
-    border: none;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 15px solid #fff;
-    z-index: 200;
-    -webkit-animation: none;
-    animation: none;
-    border-radius: 0;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.6);
+
+    border: 2px solid rgba(205, 164, 94, 0.65);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    pointer-events: none;
+
+    animation:
+        pulsate-btn 2s ease-out infinite;
 }
+
+
+/* =========================================
+   VIDEO LABEL
+========================================= */
+
+.hero-video-label {
+    position: absolute;
+
+    top: calc(50% + 75px);
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+.hero-scroll {
+    position: absolute;
+
+    left: 50%;
+    bottom: 30px;
+
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 9px;
+
+    transform: translateX(-50%);
+
+    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+
+    opacity: 1;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+.hero-scroll-hidden {
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        translateY(20px);
+
+    pointer-events: none;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 45px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #cda45e,
+            transparent
+        );
+
+    animation:
+        scroll-line 2s ease-in-out infinite;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes scroll-line {
+
+    0%,
+    100% {
+        opacity: 0.4;
+
+        transform: scaleY(0.6);
+
+        transform-origin: top;
+    }
+
+    50% {
+        opacity: 1;
+
+        transform: scaleY(1);
+
+        transform-origin: top;
+    }
+}
+
+
+@keyframes pulsate-btn {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.6);
+
+        opacity: 0.9;
+    }
+
+    70% {
+        opacity: 0.25;
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1400px) {
+
+    #hero h1 {
+        font-size: 7.5rem;
+    }
+
+    #hero h2 {
+        font-size: 1.45rem;
+    }
+
+    #hero .container {
+        padding-top: 70px;
+    }
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
 
 @media (min-width: 1024px) {
+
     #hero {
         background-attachment: fixed;
     }
 }
 
-@media (max-width: 992px) {
+
+/* =========================================
+   SMALL DESKTOP / LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+
+    #hero h1 {
+        font-size: 5.8rem;
+
+        letter-spacing: -2px;
+    }
+
+    #hero h2 {
+        font-size: 1.2rem;
+    }
+
     #hero .play-btn {
+        width: 88px;
+        height: 88px;
+    }
+
+    #hero .play-btn::before {
+        width: 112px;
+        height: 112px;
+    }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 991px) {
+
+    #hero {
+        min-height: 750px;
+    }
+
+    #hero .container {
+        padding-top: 90px;
+    }
+
+    #hero h1 {
+        font-size: 4.8rem;
+
+        line-height: 1;
+
+        letter-spacing: -2px;
+    }
+
+    #hero h2 {
+        max-width: 600px;
+
+        font-size: 1.2rem;
+    }
+
+    #hero .play-btn {
+        margin-top: 55px;
+    }
+
+    .hero-video-label {
+        top: calc(50% + 125px);
+
+        font-size: 11px;
+    }
+
+    .hero-scroll {
+        bottom: 20px;
+
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================
+   SMALL TABLET / NARROW DESKTOP
+========================================= */
+
+@media (min-width: 769px) and (max-width: 991px) {
+
+    #hero {
+        min-height: 700px;
+    }
+
+    #hero .container {
+        padding-top: 70px;
+
+        text-align: center;
+    }
+
+    /* Eyebrow */
+
+    .hero-eyebrow {
+        justify-content: center;
+
+        margin-bottom: 20px;
+
+        font-size: 11px;
+
+        letter-spacing: 3.5px;
+    }
+
+    .hero-eyebrow::before {
+        width: 28px;
+    }
+
+    /* Title */
+
+    #hero h1 {
+        font-size: 4.3rem;
+
+        line-height: 1;
+
+        letter-spacing: -1.5px;
+    }
+
+    /* Divider */
+
+    .hero-divider {
+        margin: 22px auto 20px;
+    }
+
+    /* Subtitle */
+
+    #hero h2 {
+        max-width: 560px;
+
+        margin: 0 auto;
+
+        font-size: 1.15rem;
+
+        line-height: 1.6;
+    }
+
+    /* Buttons */
+
+    #hero .btns {
+        justify-content: center;
+
+        margin-top: 32px;
+
+        margin-left: 0;
+    }
+
+    /* Play button */
+
+    #hero .play-btn {
+        width: 84px;
+        height: 84px;
+
+        margin-top: 42px;
+    }
+
+    #hero .play-btn::before {
+        width: 110px;
+        height: 110px;
+    }
+
+    .hero-video-label {
+        top: calc(50% + 108px);
+
+        font-size: 10px;
+    }
+
+    /* Scroll */
+
+    .hero-scroll {
+        bottom: 20px;
+
+        font-size: 10px;
+    }
+
+    .scroll-line {
+        height: 42px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    #hero {
+        min-height: 100svh;
+        height: 100svh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #hero .container {
+        width: 100%;
+
+        padding-top: 20px;
+        padding-bottom: 70px;
+
+        text-align: center;
+    }
+
+    #hero .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+
+        margin: 0;
+    }
+
+    #hero .col-lg-8,
+    #hero .col-lg-4 {
+        width: 100%;
+        max-width: 100%;
+
+        padding-left: 15px;
+        padding-right: 15px;
+
+        text-align: center;
+    }
+
+
+    /* =====================================
+       EYEBROW
+    ===================================== */
+
+    .hero-eyebrow {
+        justify-content: center;
+
+        width: 100%;
+
+        margin-bottom: 22px;
+
+        font-size: 11px;
+        font-weight: 600;
+
+        letter-spacing: 3px;
+
+        text-align: center;
+    }
+
+    .hero-eyebrow::before {
+        width: 28px;
+    }
+
+
+    /* =====================================
+       TITLE
+    ===================================== */
+
+    #hero h1 {
+        width: 100%;
+
+        margin: 0 auto;
+
+        font-size: 4.4rem;
+        font-weight: 700;
+
+        line-height: 1;
+
+        letter-spacing: -1.5px;
+
+        text-align: center;
+    }
+
+    #hero h1 span {
+        letter-spacing: -1px;
+    }
+
+
+    /* =====================================
+       DIVIDER
+    ===================================== */
+
+    .hero-divider {
+        width: 190px;
+
+        margin: 26px auto 22px;
+    }
+
+    .hero-divider span {
+        left: 32px;
+    }
+
+
+    /* =====================================
+       SUBTITLE
+    ===================================== */
+
+    #hero h2 {
+        width: 100%;
+        max-width: 390px;
+
+        margin: 0 auto;
+
+        font-size: 19px;
+        font-weight: 300;
+
+        line-height: 1.55;
+
+        letter-spacing: 0.4px;
+
+        text-align: center;
+    }
+
+    #hero h2 span {
+        display: inline-block;
+
+        margin-top: 3px;
+
+        font-size: 0.92em;
+    }
+
+
+    /* =====================================
+       BOOK BUTTON
+    ===================================== */
+
+    #hero .btns {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+
+        margin: 34px auto 0;
+
+        padding: 0;
+
+        text-align: center;
+    }
+
+
+    /* =====================================
+       VIDEO COLUMN
+    ===================================== */
+
+    #hero .col-lg-4 {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 22px;
+
+        position: relative;
+    }
+
+
+    /* =====================================
+       PLAY BUTTON
+    ===================================== */
+
+    #hero .play-btn {
+        width: 88px;
+        height: 88px;
+
+        margin: 0 auto;
+
+        flex-shrink: 0;
+    }
+
+    #hero .play-btn::before {
+        width: 114px;
+        height: 114px;
+    }
+
+
+    /* =====================================
+       VIDEO LABEL
+    ===================================== */
+
+    .hero-video-label {
+        display: none;
+    }
+
+
+    /* =====================================
+       SCROLL INDICATOR
+    ===================================== */
+
+    .hero-scroll {
+        display: flex;
+
+        left: 50%;
+        bottom: 18px;
+
+        font-size: 9px;
+
+        letter-spacing: 2.5px;
+
+        transform: translateX(-50%);
+    }
+
+    .scroll-line {
+        height: 38px;
+    }
+}
+
+
+/* =========================================
+   IPHONE / SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    #hero {
+        min-height: 100svh;
+        height: 100svh;
+    }
+
+    #hero .container {
+        padding-top: 15px;
+        padding-bottom: 65px;
+    }
+
+
+    /* =====================================
+       EYEBROW
+    ===================================== */
+
+    .hero-eyebrow {
+        margin-bottom: 20px;
+
+        font-size: 10px;
+
+        letter-spacing: 2.6px;
+    }
+
+    .hero-eyebrow::before {
+        width: 24px;
+    }
+
+
+    /* =====================================
+       TITLE
+    ===================================== */
+
+    #hero h1 {
+        font-size: 3.65rem;
+
+        line-height: 1.02;
+
+        letter-spacing: -1px;
+    }
+
+    #hero h1 span {
+        letter-spacing: -0.8px;
+    }
+
+
+    /* =====================================
+       DIVIDER
+    ===================================== */
+
+    .hero-divider {
+        width: 175px;
+
+        margin: 24px auto 20px;
+    }
+
+    .hero-divider span {
+        left: 30px;
+
+        width: 7px;
+        height: 7px;
+    }
+
+
+    /* =====================================
+       SUBTITLE
+    ===================================== */
+
+    #hero h2 {
+        max-width: 360px;
+
+        font-size: 17.5px;
+
+        line-height: 1.55;
+
+        letter-spacing: 0.25px;
+    }
+
+    #hero h2 span {
+        font-size: 0.92em;
+    }
+
+
+    /* =====================================
+       BUTTON
+    ===================================== */
+
+    #hero .btns {
         margin-top: 30px;
     }
+
+
+    /* =====================================
+       VIDEO
+    ===================================== */
+
+    #hero .col-lg-4 {
+        margin-top: 18px;
+    }
+
+    #hero .play-btn {
+        width: 78px;
+        height: 78px;
+    }
+
+    #hero .play-btn::before {
+        width: 102px;
+        height: 102px;
+    }
+
+
+    /* =====================================
+       SCROLL
+    ===================================== */
+
+    .hero-scroll {
+        bottom: 12px;
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+    .scroll-line {
+        height: 32px;
+    }
 }
 
-@media (max-height: 500px) {
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
     #hero {
-        height: auto;
+        min-height: 650px;
     }
-    #hero .container{
-        padding-top: 130px;
-        padding-bottom: 60px;
-    }
-}
 
-@media (max-width: 768px){
+    #hero .container {
+        padding-top: 55px;
+    }
+
+    /* Eyebrow */
+    .hero-eyebrow {
+        margin-bottom: 18px;
+
+        font-size: 8.5px;
+
+        letter-spacing: 2.5px;
+    }
+
+    .hero-eyebrow::before {
+        width: 22px;
+    }
+
+    /* Title */
     #hero h1 {
-        font-size: 28px;
-        line-height: 36px;
+        font-size: 3.2rem;
+
+        line-height: 1.05;
+
+        letter-spacing: -0.8px;
     }
+
+    /* Divider */
+    .hero-divider {
+        width: 160px;
+
+        margin: 22px auto 18px;
+    }
+
+    /* Subtitle */
     #hero h2 {
-        font-size: 18px;
-        line-height: 24px;
+        max-width: 340px;
+
+        font-size: 16px;
+
+        line-height: 1.55;
+    }
+
+    #hero h2 span {
+        font-size: 0.9em;
+    }
+
+    /* Button */
+    #hero .btns {
+        margin-top: 28px;
+    }
+
+    /* Play button */
+    #hero .play-btn {
+        width: 74px;
+        height: 74px;
+
+        margin-top: 28px;
+    }
+
+    #hero .play-btn::before {
+        width: 96px;
+        height: 96px;
+    }
+
+    /* Scroll */
+    .hero-scroll {
+        bottom: 14px;
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+    .scroll-line {
+        height: 35px;
     }
 }
 
-@-webkit-keyframes pulsate-btn {
-    0% {
-        transform: scale(0.6, 0.6);
-        opacity: 1;
+
+/* =========================================
+   VERY SHORT SCREENS
+========================================= */
+
+@media (max-height: 650px) and (min-width: 769px) {
+
+    #hero {
+        min-height: 600px;
     }
-    100% {
-        transform: scale(1, 1);
-        opacity: 0;
+
+    #hero .container {
+        padding-top: 60px;
+    }
+
+    #hero h1 {
+        font-size: 5rem;
+    }
+
+    #hero h2 {
+        font-size: 1.1rem;
+    }
+
+    #hero .btns {
+        margin-top: 25px;
+    }
+
+    #hero .play-btn {
+        width: 80px;
+        height: 80px;
+    }
+
+    .hero-scroll {
+        display: none;
     }
 }
 
-@keyframes pulsate-btn {
-    0% {
-        transform: scale(0.6, 0.6);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1, 1);
-        opacity: 0;
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #hero .play-btn,
+    #hero .play-btn::before,
+    .scroll-line {
+        animation: none;
+
+        transition: none;
     }
 }

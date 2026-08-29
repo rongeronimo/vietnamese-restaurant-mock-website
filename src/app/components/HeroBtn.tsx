@@ -30,7 +30,7 @@ export default function HeroBtn({
         <a
             onClick={() => handleScrollTo(target)}
             className={`btn-hero animated fadeInUp scrollto ${
-                target === 'book-a-table' ? 'ms-4' : undefined
+                target === 'book-a-table' ? '' : ''
             }`}
         >
             {name}
